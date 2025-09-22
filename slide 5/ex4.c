@@ -6,8 +6,9 @@ void troca(int* p1, int* p2) {
     *p2 = a;
 }
 void main(void) {
-    
+
     int x = 10, y = 20;
+    
     troca(x, y);
     printf("%d %d", x, y);
 }

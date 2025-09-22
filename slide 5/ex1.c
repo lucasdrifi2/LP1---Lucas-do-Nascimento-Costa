@@ -3,7 +3,7 @@
 void main(void) {
     int a, b;
     int *p;
-    printf("Digite a e b:");
+    printf("Digite a e b:\n");
     scanf("%d %d", &a, &b);
     printf("a = %d, b = %d\n", a, b);
     if (a > b) {

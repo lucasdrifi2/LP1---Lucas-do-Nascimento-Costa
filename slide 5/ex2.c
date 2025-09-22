@@ -4,8 +4,8 @@ void compra(int* conta, int valor) {
 }
 void main(void) {
 
-    int conta1;
-    int conta2;
+    int conta1 ;
+    int conta2 ;
     int preco;
     printf("Saldo da conta 1: ");
     scanf("%d", &conta1);
