@@ -1,0 +1,3 @@
+## O que é união discriminada e por que ela é necessária?
+
+# União discriminada é uma técnica que usa uma struct para agrupar uma union (que armazena o valor) com um campo discriminante (enum). É necessária porque o discriminante indica qual membro da união está ativo no momento, evitando ambiguidade e garantindo que o programa acesse o tipo de dado correto e seguro, combinando assim a economia de memória da união com a segurança da estrutura.
