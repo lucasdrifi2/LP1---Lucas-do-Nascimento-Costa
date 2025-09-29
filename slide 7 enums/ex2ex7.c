@@ -13,8 +13,13 @@ struct Filme {
     int duracao_min;
 };
 
+enum TipoConteudo {
+    TIPO_LIVRO,
+    TIPO_FILME
+};
+
 struct Conteudo {
-    int tipo; 
+    enum TipoConteudo tipo; 
     
     union {
         struct Livro livro;
@@ -29,9 +34,9 @@ void preenche(struct Conteudo *c) {
     printf("0 - Livro\n1 - Filme\nEscolha: ");
     if (scanf("%d", &escolha) != 1) return;
 
-    c->tipo = (escolha == 0) ? 0 : 1;
+    c->tipo = (escolha == 0) ? TIPO_LIVRO : TIPO_FILME;
 
-    if (c->tipo == 0) {
+    if (c->tipo == TIPO_LIVRO) {
         printf("\n--- Preenchendo Livro ---\n");
         struct Livro *l = &c->dados.livro; 
         
@@ -42,7 +47,7 @@ void preenche(struct Conteudo *c) {
         printf("Digite o preco: ");
         scanf("%f", &l->preco);
         
-    } else if (c->tipo == 1) {
+    } else if (c->tipo == TIPO_FILME) {
         printf("\n--- Preenchendo Filme ---\n");
         struct Filme *f = &c->dados.filme;
         
@@ -58,14 +63,14 @@ void preenche(struct Conteudo *c) {
 void exibe(const struct Conteudo *c) {
     printf("\n==================================\n");
     
-    if (c->tipo == 0) {
+    if (c->tipo == TIPO_LIVRO) {
         printf("Tipo: LIVRO\n");
         struct Livro *l = &c->dados.livro;
         printf("Titulo: %s\n", l->titulo);
         printf("Ano: %d\n", l->ano);
         printf("Preco: R$ %.2f\n", l->preco);
         
-    } else if (c->tipo == 1) {
+    } else if (c->tipo == TIPO_FILME) {
         printf("Tipo: FILME\n");
         struct Filme *f = &c->dados.filme;
         printf("Titulo: %s\n", f->titulo);
